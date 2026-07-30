@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jarvis OS</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">J</div>
+          <div>
+            <h1>Jarvis OS</h1>
+            <p>Voice workspace</p>
+          </div>
+        </div>
+
+        <nav class="nav-list" aria-label="Jarvis sections">
+          <button class="nav-item active">Command Center</button>
+          <button class="nav-item">Memory</button>
+          <button class="nav-item">Automation</button>
+          <button class="nav-item">Settings</button>
+        </nav>
+
+        <section class="panel">
+          <div class="panel-title">Runtime</div>
+          <div class="metric-row">
+            <span>Server</span>
+            <strong id="serverStatus">Connecting</strong>
+          </div>
+          <div class="metric-row">
+            <span>Voice</span>
+            <strong id="voiceStatus">Checking</strong>
+          </div>
+          <div class="metric-row">
+            <span>AI Chat</span>
+            <strong id="aiStatus">Checking</strong>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">Quick Actions</div>
+          <div class="quick-list">
+            <button class="quick-command" data-command="what can you do">Capabilities</button>
+            <button class="quick-command" data-command="time">Current Time</button>
+            <button class="quick-command" data-command="battery">Battery</button>
+            <button class="quick-command" data-command="apps">Installed Apps</button>
+            <button class="quick-command" data-command="files">Workspace Files</button>
+            <button class="quick-command" data-command="open app Calculator">Open Calculator</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <div class="eyebrow">Local desktop assistant</div>
+            <h2>Ask questions, run tasks, and control your Mac by voice.</h2>
+          </div>
+          <div class="top-actions">
+            <button class="secondary-button" id="clearButton">Clear</button>
+            <button class="secondary-button" id="muteButton">Sound On</button>
+          </div>
+        </header>
+
+        <section class="overview-grid">
+          <article class="stat-card">
+            <span>Mode</span>
+            <strong>Voice + Text</strong>
+          </article>
+          <article class="stat-card">
+            <span>Scope</span>
+            <strong>Local System</strong>
+          </article>
+          <article class="stat-card">
+            <span>Memory</span>
+            <strong>SQLite</strong>
+          </article>
+        </section>
+
+        <section class="voice-stage">
+          <canvas id="waveform" width="900" height="260" aria-hidden="true"></canvas>
+          <div class="voice-center">
+            <button class="mic-button" id="micButton" aria-label="Start listening">
+              <span class="mic-ring"></span>
+              <span class="mic-core"></span>
+            </button>
+            <div class="voice-copy">
+              <div class="listen-state" id="listenState">Ready</div>
+              <div class="hint" id="voiceHint">Press the mic, speak one command, then wait for Jarvis.</div>
+            </div>
+          </div>
+        </section>
+
+        <form class="command-bar" id="commandForm">
+          <input id="commandInput" type="text" autocomplete="off" placeholder="Ask anything, or try: open app Calculator" />
+          <button type="submit">Run</button>
+        </form>
+
+        <section class="conversation-wrap">
+          <div class="conversation-header">
+            <div>
+              <div class="eyebrow">Conversation</div>
+              <h3>Assistant Log</h3>
+            </div>
+            <span id="turnCount">1 message</span>
+          </div>
+          <div class="conversation" id="conversation" aria-live="polite">
+            <article class="message assistant">
+              <div class="message-meta">Jarvis</div>
+              <p>Online. Ask a general question, speak a system command, or ask what I can do.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
