@@ -212,6 +212,14 @@ jarvis/
   tools.py           # Built-in tool handlers
   voice.py           # pyttsx3 speaker + speech_recognition listener
   web.py             # HTTP server and API handlers
+tests/
+  conftest.py        # Shared pytest fixtures
+  test_memory.py     # Memory store tests
+  test_tools.py      # Tool handler tests
+  test_assistant.py  # Command routing tests
+  test_system_tasks.py # System task tests
+  test_llm.py        # LLM client tests
+  test_web.py        # Web API tests
 web/
   index.html         # Web UI markup
   app.js             # Client-side JavaScript
@@ -222,7 +230,7 @@ run_llm_test.py      # Manual Ollama connectivity check
 
 ## Testing
 
-There is no automated test suite. `run_llm_test.py` is a manual script for verifying Ollama connectivity.
+The automated test suite lives in `tests/` and runs with `python3 -m pytest tests/ -v`. `run_llm_test.py` is a manual script for verifying Ollama connectivity.
 
 ## Security Considerations
 
@@ -248,7 +256,6 @@ Reasonable next steps given the current project direction:
 - Confirmation prompts for destructive or external actions (sending messages, deleting files)
 - Calendar and email integrations
 - Background reminder notifications
-- Automated test suite
 - Richer system automation (browser/desktop automation layer)
 
 ## License
