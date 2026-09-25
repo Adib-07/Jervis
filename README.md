@@ -139,6 +139,15 @@ export OPENAI_API_KEY="sk-..."
 python -m jarvis
 ```
 
+A template with every variable is provided in [`.env.example`](.env.example). Jervis reads the process environment directly (no automatic `.env` loading), so load it into your shell first:
+
+```bash
+cp .env.example .env
+# edit .env with your values, then:
+set -a && source .env && set +a
+python -m jarvis
+```
+
 ## Usage
 
 ### Web interface (default)
@@ -260,4 +269,4 @@ Reasonable next steps given the current project direction:
 
 ## License
 
-No license has been selected yet. All rights reserved by default.
+Released under the [MIT License](LICENSE).
